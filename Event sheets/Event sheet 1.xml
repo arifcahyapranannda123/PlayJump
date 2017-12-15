@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="musuh" sid="881693136481079" static="0" type="number">0</variable>
+        <variable constant="0" name="SCORES" sid="9740479874957529" static="0" type="number">0</variable>
+        <variable constant="0" name="JARAK" sid="1689345000518824" static="0" type="number">0</variable>
+        <variable constant="0" name="SCROLL" sid="8695977594159729" static="0" type="number">400</variable>
+        <variable constant="0" name="State" sid="9470264684817647" static="0" type="text">PLAY</variable>
+        <event-block sid="5604521048193076">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="3117847750158017" type="System">
+                    <param id="0" name="Variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;PLAY&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="8577921305793828">
+                    <conditions>
+                        <condition behavior="Platform" id="2" name="Is on floor" sid="497850257358874" type="Sprite2" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="8343033511518228" type="Sprite2">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="8242149257145232" type="Sprite2">
+                            <param id="0" name="Animation">&quot;jump&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6431610156820698">
+                    <conditions>
+                        <condition id="4" name="Is touching object" sid="7608181791401339" type="Touch">
+                            <param id="0" name="Object">KANAN</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="3471648664923993" type="Sprite2">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="4249537052646657" type="KANAN">
+                            <param id="0" name="Animation">&quot;tot&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3470192151839346">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="3555878366861488" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="1627806413481961" type="KANAN">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6607689593657438">
+                    <conditions>
+                        <condition id="4" name="Is touching object" sid="4554081326434356" type="Touch">
+                            <param id="0" name="Object">KIRI</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="2200041453316205" type="Sprite2">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="5286189300039601" type="KIRI">
+                            <param id="0" name="Animation">&quot;kik&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6876618614547292">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="5369035845173864" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="7744895264196278" type="KIRI">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6170099932827616">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="884649825342357" type="Sprite2">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Y co-ordinate">ViewportBottom(1)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="436579598761672" type="Sprite2" />
+                    </actions>
+                </event-block>
+                <event-block sid="4102177200623155">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="6358857120211146" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-6" name="Scroll to Y" sid="484168173097261" type="System">
+                            <param id="0" name="Y">SCROLL</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3582696517722561">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="4832371108303916" type="System">
+                            <param id="0" name="Variable">JARAK</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">ViewportTop(1)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="3475325867774973" type="System">
+                            <param id="0" name="Object to create">PIJAKAN</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">random(50,430)</param>
+                            <param id="3" name="Y">ViewportTop(1)</param>
+                        </action>
+                        <action id="-25" name="Move to bottom" sid="3143966644668354" type="PIJAKAN" />
+                        <action id="-9" name="Set value" sid="3231926931093432" type="System">
+                            <param id="0" name="Variable">JARAK</param>
+                            <param id="1" name="Value">ViewportTop(1)-random(140,220)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3336384601577122">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="3931682417357742" type="Sprite2">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Y co-ordinate">SCROLL</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6760133792348963" type="System">
+                            <param id="0" name="Variable">SCROLL</param>
+                            <param id="1" name="Value">Sprite2.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9963523428316412">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="3023060744622438" type="PIJAKAN">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Y co-ordinate">ViewportBottom(1)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="591079272927865" type="System">
+                            <param id="0" name="Variable">SCORES</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="5164637374378798" type="NILAI">
+                            <param id="0" name="Text">SCORES</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="8814754342702683" type="PIJAKAN" />
+                    </actions>
+                </event-block>
+                <event-block sid="697176700402844">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="909178736194364" type="Sprite2">
+                            <param id="0" name="Object">Sprite</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="765509126440372" type="System">
+                            <param id="0" name="Variable">SCORES</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="248121407582465" type="Sprite2">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="666026458241145">
+                    <conditions>
+                        <condition behavior="Sine" id="0" name="Is active" sid="811750879321037" type="Sprite" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Sine" id="0" name="Set active" sid="506976460202612" type="Sprite">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="628294027562275" type="Sprite">
+                            <param id="0" name="Animation">&quot;herizontal_kiri&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="593147576238827">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="178797195328549" type="System">
+                            <param id="0" name="First value">musuh-420</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">ViewportTop(1)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="378396746874880" type="System">
+                            <param id="0" name="Object to create">Sprite</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">random(50, LayoutWidth - 50)</param>
+                            <param id="3" name="Y">ViewportTop(1)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="191113045483582" type="System">
+                            <param id="0" name="Variable">musuh</param>
+                            <param id="1" name="Value">ViewportTop(1)-random(140,200)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
